@@ -7,7 +7,7 @@ def mains():
   global track
   global heshd
   heshd= input("Type Data : ").lower()
-  track = str(input("Type Number : "))
+  track = str(input("Type Number : ")).lower()
   data1 = []
   for i in heshd:
     if i in "1,2,3,4,5,6,7,8,9,0":
@@ -29,6 +29,7 @@ def saver():
     if len(o3) >= 4:
       print("2/5")
   elif track == "5":
+    global quest2
     o5.append(1)
     o3.clear()
     o2.clear()
@@ -37,9 +38,10 @@ def saver():
 
 def history():
   global add
-  with open('database.txt' , 'a') as file:
-    add = file.write(track + '\n')
-  database = open('database.txt')
-  print('Recently Data : ' ,'\n', database.read())
-  if database.tell() > 10 :
-    os.remove('database.txt')
+  if heshd != 'bye':
+    with open('database.txt' , 'a') as file:
+      add = file.write(track + '\n')
+    database = open('database.txt')
+    print('Recently Data : ' ,'\n', database.read())
+    if database.tell() > 10 :
+      os.remove('database.txt')
